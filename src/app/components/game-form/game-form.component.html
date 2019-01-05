@@ -11,7 +11,11 @@
         <div class="form-group">
           <input autocomplete="off" type="url" name="image" [(ngModel)]="game.image" placeholder="Image" class="form-control" >
         </div>
-        <button class="btn btn-success btn-block" (click)="saveNewGame()">Save Game</button>
+       
+        <button *ngIf="viewEdit, else notShow" class="btn btn-danger btn-block" (click)="editGame()">Edit Game</button>
+        <ng-template #notShow >
+          <button class="btn btn-success btn-block" (click)="saveNewGame()">Save Game</button>
+        </ng-template>
       </form>
     </div>
   </div>
